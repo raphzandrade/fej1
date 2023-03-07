@@ -1,0 +1,23 @@
+<p>form-page works!</p>
+
+<br />
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <span>Name:</span><br />
+    <input type="text" formControlName="name"> <br />
+    <span class="warn" *ngIf="hasError('name', 'required')">Nome é obrigatório!</span> <br />
+    <span class="warn" *ngIf="hasError('name', 'minlength')">Nome precisa ter pelo menos três caracteres!</span> <br />
+    <br />
+
+    <span>Age:</span> <br />
+    <input type="text" formControlName="age"> <br />
+    <span class="warn" *ngIf="hasError('age', 'required')">Idade é obrigatório!</span> <br />
+    <span class="warn" *ngIf="hasError('age', 'min')">Você precisa ter pelo menos 18 anos!</span> <br />
+    <span class="warn" *ngIf="hasError('age', 'isNotNumber')">A idade precisa ser um número!</span> <br />
+    <br />
+
+    <button type="submit" [disabled]="isSending">{{ isSending ? "Enviando" : "Enviar"}}</button>
+</form>
+
+<br /> <br />
+<button (click)="setStringAsAge()">colocar string como age</button>

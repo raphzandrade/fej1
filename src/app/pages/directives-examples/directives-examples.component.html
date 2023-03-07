@@ -1,0 +1,39 @@
+<h1>NgIf</h1>
+
+<p *ngIf="!toggleParagraph; else elseBlock">Esse é o primeiro parágrafo</p>
+
+<ng-template #elseBlock>
+    <p> Esse é o segundo parágrafo</p>
+</ng-template>
+
+
+<h2>Em múltiplos items ao mesmo tempo</h2>
+
+<ng-container *ngIf="!toggleParagraph">
+    <p>Quero que esse paragrafo apareça apenas quando o outro também aparecer.</p>
+    <p>Quero que esse paragrafo apareça apenas quando o outro também aparecer.</p>
+</ng-container>
+
+<br />
+<button (click)="onToggleParagraph()">Toggle paragraph</button>
+<br />
+
+<h1>ngSwitch & ngCase</h1>
+
+<div [ngSwitch]="activeParagraph">
+    <p *ngSwitchCase="0">Esse é o primeiro parágrafo</p>
+    <p *ngSwitchCase="1">Esse é o segundo parágrafo</p>
+    <p *ngSwitchCase="2">Esse é o terceiro parágrafo</p>
+    <p *ngSwitchDefault>Esse é o parágrafo default</p>
+</div>
+
+<br />
+<button (click)="onChangeActiveParagraph()">Change active paragraph</button>
+<br />
+
+<h1>ngClass</h1>
+<p [ngClass]="{'blue': true, 'whiteText': true}">Esse é o nosso parágrafo!</p>
+
+<h1>Custom hover directive</h1>
+
+<p appCustomHover="blue" style="background-color: red">Esse paragráfo irá receber nossa diretiva customizada</p>

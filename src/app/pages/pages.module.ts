@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ListPageComponent } from './list-page/list-page.component';
+import { ComponentsModule } from '../components/components.module';
+import { FormPageComponent } from './form-page/form-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DirectivesExamplesComponent } from './directives-examples/directives-examples.component';
+import { DirectivesModule } from '../directives/directives.module';
+
+
+
+@NgModule({
+  declarations: [
+    ListPageComponent,
+    FormPageComponent,
+    DirectivesExamplesComponent
+  ],
+  exports: [
+    ListPageComponent,
+    FormPageComponent,
+    DirectivesExamplesComponent
+  ],
+  imports: [
+    CommonModule,
+    ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DirectivesModule
+  ]
+})
+export class PagesModule { }

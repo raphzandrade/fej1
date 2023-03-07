@@ -1,0 +1,9 @@
+<h1>Essa é a nossa lista:</h1>
+
+<app-list-card *ngFor="let person of persons" [personInput]="person" (deleteCard)="onDeleteCard($event)">
+
+</app-list-card>
+
+<button (click)="onGoToDirectivesExamples()">Exemplos de diretivas</button><br /> <br />
+
+<button (click)="onRegisterNewPerson()">Cadastrar nova pessoa</button>
