@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Person } from 'src/app/interfaces';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class PersonsService {
   ]
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) { }
 
   public getPersons(): Person[] {
@@ -22,7 +23,7 @@ export class PersonsService {
   }
 
   public getPersonsFromApi(): Observable<Person[]> {
-    const url = 'http://localhost:3000/persons'
+    const url = 'http://localhost:3000/660/persons'
 
     const recipe = this.httpClient.get<Person[]>(url)
 
@@ -34,7 +35,7 @@ export class PersonsService {
   }
 
   public createPersonOnApi(newPerson: Person): Observable<Person> {
-    const url = 'http://localhost:3000/persons'
+    const url = 'http://localhost:3000/660/persons'
 
     const recipe = this.httpClient.post<Person>(url, newPerson)
 
@@ -42,7 +43,7 @@ export class PersonsService {
   }
 
   public deletePersonOnApi(id: number): Observable<unknown> {
-    const url = `http://localhost:3000/persons/${id}`
+    const url = `http://localhost:3000/660/persons/${id}`
 
     const recipe = this.httpClient.delete(url)
 

@@ -1,0 +1,15 @@
+<h1>Faça o seu login: </h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <span>Email:</span><br />
+    <input type="text" formControlName="email"> <br /> <br />
+
+
+    <span>Senha:</span><br />
+    <input type="password" formControlName="password"> <br /> <br />
+
+    <span>Novo usuário?</span>
+    <input type="checkbox" formControlName="newUser"> <br /> <br />
+
+    <button type="submit"> Enviar </button>
+</form>

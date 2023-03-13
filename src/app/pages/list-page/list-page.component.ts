@@ -1,32 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from 'src/app/interfaces';
 import { PersonsService } from 'src/app/services/persons/persons.service';
+import { BehaviorSubject, interval, map, mapTo, Observable, Subject, takeUntil, timer } from 'rxjs'
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.component.html',
   styleUrls: ['./list-page.component.scss']
 })
-export class ListPageComponent implements OnInit {
+export class ListPageComponent implements OnInit, OnDestroy {
 
   public persons: Person[] = []
+  public seconds: number
+  public dateObj: Date = new Date()
+  public currencyValue: number = 99
+  public personsObservable: Observable<Person[]>
+  public myString: string = 'test string'
+
+
+  private cancelSubscription: Subject<void> = new Subject()
+  public intervalObservable = interval(1000).pipe(takeUntil(this.cancelSubscription))
+
 
   constructor(
     public personsService: PersonsService,
-    public router: Router
+    public router: Router,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.loadPersons()
+    // this.intervalObservable.subscribe((currentSecond) => { this.seconds = currentSecond })
   }
 
-  private loadPersons(): void {
-    // this.persons = this.personsService.getPersons()
+  ngOnDestroy(): void {
+    this.cancelSubscription.next()
+    this.cancelSubscription.complete()
+  }
+
+  public loadPersons(): void {
+    this.cancelSubscription.next()
 
     const recipe = this.personsService.getPersonsFromApi()
+    this.personsObservable = recipe
 
-    recipe.subscribe((response: Person[]) => {
+    this.persons = undefined
+
+    recipe.pipe(takeUntil(this.cancelSubscription)).subscribe((response: Person[]) => {
       this.persons = response
     })
   }
@@ -51,11 +73,19 @@ export class ListPageComponent implements OnInit {
     this.personsService.helloWorld()
   }
 
+  onCancelSubscriptions(): void {
+    this.cancelSubscription.next()
+  }
+
   onRegisterNewPerson(): void {
     this.router.navigateByUrl("/cadastro")
   }
 
   onGoToDirectivesExamples(): void {
     this.router.navigateByUrl('diretivas')
+  }
+
+  public onLogout(): void {
+    this.authService.logout()
   }
 }

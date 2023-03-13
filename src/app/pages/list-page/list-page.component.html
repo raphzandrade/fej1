@@ -1,9 +1,23 @@
 <h1>Essa é a nossa lista:</h1>
+<!-- <h2>Tempo que essa página está aberta: {{ seconds }}s</h2> -->
+<!-- <h2>Tempo que essa página está aberta: {{ intervalObservable | async }}s</h2> -->
+
 
 <app-list-card *ngFor="let person of persons" [personInput]="person" (deleteCard)="onDeleteCard($event)">
 
 </app-list-card>
 
-<button (click)="onGoToDirectivesExamples()">Exemplos de diretivas</button><br /> <br />
+<!-- <app-list-card *ngFor="let person of personsObservable | async" [personInput]="person"
+    (deleteCard)="onDeleteCard($event)">
 
-<button (click)="onRegisterNewPerson()">Cadastrar nova pessoa</button>
+</app-list-card> -->
+
+<!-- <button (click)="onGoToDirectivesExamples()">Exemplos de diretivas</button><br /> <br /> -->
+
+<!-- <button (click)="onCancelSubscriptions()">Cancelar timer</button><br /> <br /> -->
+
+<button (click)="loadPersons()">Carregar pessoas</button><br /> <br />
+
+<button (click)="onRegisterNewPerson()">Cadastrar nova pessoa</button> <br /> <br />
+
+<button (click)="onLogout()">Logout</button>

@@ -1,4 +1,41 @@
 {
+  "users": [
+    {
+      "email": "teste@teste.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "email": "teste2@teste.com",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "email": "teste3@teste.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "email": "teste3@teste.com",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "email": "teste-dom@teste.com",
+      "password": "$2a$10$z2Mx1IyaV8RsDtKBe.iud.pSjoR/1aoOmjxtZqKJnK45.UZwzNYza",
+      "id": 5
+    },
+    {
+      "email": "teste-dom2@teste.com",
+      "password": "$2a$10$d1pwxymkiwLOETEpFS6ndeAyLiamqqZorreoAIPlEuei1TFn.N/Bi",
+      "id": 6
+    },
+    {
+      "email": "teste-seg@teste.com",
+      "password": "$2a$10$yq0sGX0ErEhhViX36Y9HwuzBwHdddqFMUoTxGg6/Gp5XVx5Nxs4G6",
+      "id": 7
+    }
+  ],
   "persons": [
     {
       "id": 1,
@@ -6,19 +43,9 @@
       "age": 40
     },
     {
-      "id": 2,
-      "name": "Lourdes",
-      "age": 41
-    },
-    {
       "id": 3,
       "name": "newPerson",
       "age": 18
-    },
-    {
-      "id": 4,
-      "name": "testeForm3",
-      "age": 45
     }
   ]
 }

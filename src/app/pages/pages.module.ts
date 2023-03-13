@@ -6,6 +6,9 @@ import { FormPageComponent } from './form-page/form-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivesExamplesComponent } from './directives-examples/directives-examples.component';
 import { DirectivesModule } from '../directives/directives.module';
+import { PipesModule } from '../pipes/pipes.module';
+import { LoginPageComponent } from './login-page/login-page.component';
+
 
 
 
@@ -13,11 +16,13 @@ import { DirectivesModule } from '../directives/directives.module';
   declarations: [
     ListPageComponent,
     FormPageComponent,
-    DirectivesExamplesComponent
+    DirectivesExamplesComponent,
+    LoginPageComponent,
   ],
   exports: [
     ListPageComponent,
     FormPageComponent,
+    LoginPageComponent,
     DirectivesExamplesComponent
   ],
   imports: [
@@ -25,7 +30,8 @@ import { DirectivesModule } from '../directives/directives.module';
     ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
-    DirectivesModule
+    DirectivesModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

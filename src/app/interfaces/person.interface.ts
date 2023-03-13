@@ -1,8 +1,3 @@
-// export interface Person {
-//     name: string
-//     age: number
-// }
-
 export class Person {
     constructor(
         public id: number,
